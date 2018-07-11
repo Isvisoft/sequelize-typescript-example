@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --require ts-node/register index.ts",
-    "test": "mocha --reporter spec --compilers ts:ts-node/register test/**/*.ts "
+    "test": "mocha --reporter spec --compilers ts:ts-node/register test/**/*.ts ",
+    "swagger": "tsoa swagger",
+    "build": "gulp"
   },
   "author": "",
   "license": "ISC",
@@ -16,12 +18,16 @@
     "chai-as-promised": "^7.1.1",
     "chai-http": "^4.0.0",
     "express": "^4.16.3",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^5.0.0-alpha.3",
     "mocha": "^5.2.0",
     "mysql2": "^1.5.3",
     "reflect-metadata": "^0.1.12",
     "sequelize": "^4.38.0",
-    "sequelize-typescript": "^1.0.0-alpha.3",
-    "strong-error-handler": "^2.3.2"
+    "sequelize-typescript": "^0.6.6-beta.1",
+    "strong-error-handler": "^2.3.2",
+    "swagger-ui-express": "^3.0.10",
+    "tsoa": "^2.1.8"
   },
   "devDependencies": {
     "@types/chai": "^4.1.4",

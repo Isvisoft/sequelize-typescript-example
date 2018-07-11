@@ -13,7 +13,7 @@
     "strictNullChecks": true
   },
   "include": [
-    "lib/**/*.ts",
+    "src/**/*.ts",
     "index.ts"
   ],
   "exclude": [

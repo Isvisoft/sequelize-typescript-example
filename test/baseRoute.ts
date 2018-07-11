@@ -2,7 +2,7 @@
 import * as chai from "chai";
 import chaiHttp = require("chai-http");
 
-import app from "../lib/app";
+import app from "../src/app";
 
 
 chai.use(chaiHttp);
