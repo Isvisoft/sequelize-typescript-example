@@ -13,8 +13,10 @@ movies.post('/', async (req, res, next) => {
 });
 
 movies.get('', async (req, res, next) => {
+
   try {
-    res.json(await Movie.scope(req.query['scope']).findAll());
+
+    res.status(200).json(await Movie.scope(req.query['scope']).findAll());
   } catch (e) {
     next(e);
   }

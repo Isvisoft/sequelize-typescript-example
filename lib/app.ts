@@ -1,10 +1,14 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as errorhandler from 'strong-error-handler';
+
 import {movies} from './routes/movies';
 import {actors} from './routes/actors';
+import {genre} from './routes/genre';
+import {appRoutes} from './routes/app';
 
-export const app = express();
+
+ const app = express();
 
 // middleware for parsing application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: true}));
@@ -24,8 +28,12 @@ app.use((req, res, next) => {
 
 app.use('/movies', movies);
 app.use('/actors', actors);
+app.use('/genre', genre);
+app.use('/', appRoutes);
 
 app.use(errorhandler({
   debug: process.env.ENV !== 'prod',
   log: true,
 }));
+
+export default app
