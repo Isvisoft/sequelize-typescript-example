@@ -3,6 +3,13 @@ import {Movie} from '../models/Movie';
 
 export const movies = Router();
 
+/**
+ * This function comment is parsed by doctrine
+ * @route POST /movies
+ * @group foo - Operations about user
+ * @returns {object} 200 - An array of user info
+ * @returns {Error}  default - Unexpected error
+ */
 movies.post('/', async (req, res, next) => {
   try {
     const movie = await Movie.create(req.body);
@@ -12,6 +19,13 @@ movies.post('/', async (req, res, next) => {
   }
 });
 
+/**
+ * This function comment is parsed by doctrine
+ * @route GET /movies
+ * @group foo - Operations about user
+ * @returns {object} 200 - An array of user info
+ * @returns {Error}  default - Unexpected error
+ */
 movies.get('', async (req, res, next) => {
 
   try {
@@ -22,6 +36,14 @@ movies.get('', async (req, res, next) => {
   }
 });
 
+/**
+ * This function comment is parsed by doctrine
+ * @route GET /movies/:id
+ * @group foo - Operations about user
+ * @param {string} id.query.required - username or email
+ * @returns {object} 200 - An array of user info
+ * @returns {Error}  default - Unexpected error
+ */
 movies.get('/:id', async (req, res, next) => {
   try {
     const movie = await Movie.scope(req.query['scope']).findById(req.params['id']);

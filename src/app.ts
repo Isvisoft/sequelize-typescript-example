@@ -9,6 +9,7 @@ import {appRoutes} from './routes/app';
 
 
  const app = express();
+//  const expressSwagger = require('express-swagger-generator')(app);
 
 // middleware for parsing application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: true}));
@@ -30,6 +31,34 @@ app.use('/movies', movies);
 app.use('/actors', actors);
 app.use('/genre', genre);
 app.use('/', appRoutes);
+
+// let options = {
+//   swaggerDefinition: {
+//       info: {
+//           description: 'This is a sample server',
+//           title: 'Swagger',
+//           version: '1.0.0',
+//       },
+//       host: 'localhost:3000',
+//       produces: [
+//           "application/json",
+//           "application/xml"
+//       ],
+//       // schemes: ['http', 'https'],
+//   securityDefinitions: {
+//           JWT: {
+//               type: 'apiKey',
+//               in: 'header',
+//               name: 'Authorization',
+//               description: "",
+//           }
+//       }
+//   },
+//   basedir: __dirname, //app absolute path
+//   files: ['./routes/**/*.ts'] //Path to the API handle folder
+// };
+
+// expressSwagger(options)
 
 app.use(errorhandler({
   debug: process.env.ENV !== 'prod',
